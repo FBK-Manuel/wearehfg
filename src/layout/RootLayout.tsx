@@ -1,17 +1,28 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbarr from "../components/Navbarr";
+
+const ScrollToTop: React.FC = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [pathname]);
+
+  return null;
+};
 
 const RootLayout: React.FC = () => {
   return (
     <div>
+      <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         {/* ✅ Navbar always on top */}
         <Navbarr />
 
         {/* ✅ Main page content */}
-        <main className="flex-1 container mx-auto px-4 py-6">
+        <main className="">
           <Outlet />
         </main>
 

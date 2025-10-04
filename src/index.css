@@ -5,7 +5,12 @@
 
 :root {
   --font-sans: "Poppins", sans-serif;
-  --color-background: #000000;
+  --color-background: linear-gradient(
+    to bottom right,
+    #000000,
+    #d24d0a,
+    #000000
+  );
 }
 
 /* Apply globally */
@@ -13,9 +18,22 @@ html,
 body,
 #root {
   font-family: var(--font-sans);
-  background-color: var(--color-background);
-  color: #f8f9fa; /* text-gray-900 */
+  background: var(--color-background); /* Use gradient */
+  color: #f8f9fa; /* Light text */
   margin: 0;
   padding: 0;
   min-height: 100%;
+}
+
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
+/* in your CSS or Tailwind config */
+.swiper-button-next,
+.swiper-button-prev {
+  color: orange !important; /* change default blue to orange */
+  background: #f97316; /* orange bg */
+  padding: 12px;
+  border-radius: 9999px;
 }
